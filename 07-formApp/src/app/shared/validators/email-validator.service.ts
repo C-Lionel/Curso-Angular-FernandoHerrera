@@ -9,23 +9,27 @@ export class  EmailValidatorService implements AsyncValidator {
 
     const email = control.value;
 
-    const httpCallObservable = new Observable<ValidationErrors | null>( ( suscriber ) => {
+    const httpCallObservable = new Observable<ValidationErrors | null>( ( subscriber ) => {
         console.log({ email });
 
         if ( email === 'lio2014vt@gmail.com' ) {
-          suscriber.next({ emailTaken: true });
-          suscriber.complete();
+          subscriber.next({ emailTaken: true });
+          subscriber.complete();
           // return;
         }
 
-        suscriber.next(null);
-        suscriber.complete();
+        subscriber.next(null);
+        subscriber.complete();
 
-    });
+    }).pipe(
+      delay(3000)
+    );
 
     return httpCallObservable;
 
   }
+
+
 
   // validate(control: AbstractControl): Observable<ValidationErrors | null> {
   //     const email = control.value;
