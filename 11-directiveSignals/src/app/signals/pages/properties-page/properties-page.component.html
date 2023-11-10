@@ -10,6 +10,7 @@
       type="text"
       class="form-control mb-2"
       (input)="onFieldUpdated('email', txtEmail.value)"
+      [value]="user().email"
     >
 
     <input
@@ -17,6 +18,7 @@
       type="text"
       class="form-control mb-2"
       (input)="onFieldUpdated('first_name', txtFirstName.value)"
+      [value]="user().first_name"
     >
 
     <input
@@ -24,13 +26,16 @@
       type="text"
       class="form-control mb-2"
       (input)="onFieldUpdated('last_name', txtLastName.value)"
+      [value]="user().last_name"
     >
 
   </div>
 
   <div class="col-6">
     <!-- Data del usuario -->
-    <pre> {{ 'asd'}} </pre>
+    <pre> {{ user() | json }} </pre>
   </div>
+
+  <button (click)="increaseBy(1)" class="btn btn-primary"> +1 </button>
 
 </div>
