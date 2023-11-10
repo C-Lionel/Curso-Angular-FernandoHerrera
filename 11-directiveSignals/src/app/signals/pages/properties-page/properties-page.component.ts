@@ -16,8 +16,7 @@ export class PropertiesPageComponent {
     avatar: 'https://reqres.in/img/faces/1-image.jpg'
   });
 
-  //
-
+  
   public counter = signal(10);
 
   increaseBy( value: number ) {
